@@ -85,8 +85,7 @@ int searchNode(struct Node **head_ref, int key) {
 }
 
 void reverse(struct Node **head_ref) {
-  struct Node *current = *head_ref, *prev, *next;
-  prev = NULL;
+  struct Node *current = *head_ref, *next, *prev = NULL;
 
   while (current != NULL) {
     next = current->next;

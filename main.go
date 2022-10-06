@@ -107,9 +107,7 @@ func (l *List) reverse() {
 
 	for current != nil {
 		next = current.next
-		current.next = prev
-		prev = current
-		current = next
+		current.next, prev, current = prev, current, next
 	}
 	l.head = prev
 }
