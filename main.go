@@ -21,6 +21,9 @@ func main() {
 
 	l.reverse()
 	l.display()
+
+	l.sort()
+	l.display()
 }
 
 type Node struct {
@@ -110,6 +113,23 @@ func (l *List) reverse() {
 		current.next, prev, current = prev, current, next
 	}
 	l.head = prev
+}
+
+func (l *List) sort() {
+	if l.head == nil {
+		return
+	}
+	current := l.head
+	for current != nil {
+		index := current.next
+		for index != nil {
+			if current.data > index.data {
+				current.data, index.data = index.data, current.data
+			}
+			index = index.next
+		}
+		current = current.next
+	}
 }
 
 func (l *List) display() {
